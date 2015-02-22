@@ -1,0 +1,298 @@
+/* 
+---------
+CSS reset 
+---------
+*/
+	*{
+		box-sizing: border-box;
+	}
+	
+	body, html, ul, li, dd{
+		margin: 0; padding: 0;
+	}
+	
+	body{
+		font-family: helvetice, arial, sans-serif;
+		line-height: 1.5em;
+	}
+
+	dt{
+		font-weight: bold;
+		margin-top: 1.5em;
+	}
+	
+	dt:after{
+		content: ":";
+	}
+
+
+/* 
+---------
+Basics 
+---------
+*/
+	body{
+		border-top: 0.5em solid #5590D4;
+	}
+	
+	
+	.wrap{
+		max-width: 730px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+	
+	a{
+		cursor: pointer;
+	}
+	
+
+/* 
+---------
+Headers 
+---------
+*/
+	h1, h2{
+		margin: 3em 0 1em;
+		text-align: center;
+	}
+
+
+/* 
+---------
+Logo 
+---------
+*/
+	.logo{	
+		font-size: 3.5em;
+		line-height: 2em;
+		/* margin: 1.5em 0 0.5em; */
+		margin: 2.5em 0 1em;
+	}
+	
+	.logo, .logo a{
+		text-decoration: none;
+		color: #EA4737;
+		text-align: center;
+	}
+
+
+/* 
+---------
+Modules 
+---------
+*/
+
+	.rows{
+		
+	}
+	
+	.rows a{
+		display: block;		
+		padding: 1.5em 0;
+	}
+	
+	.rows a:hover{
+		background: #eff7ff;
+		border-bottom: 2px solid #379bcc;
+		border-top: 2px solid #379bcc;
+		margin-top: -2px;
+		margin-bottom: -2px;
+		position: relative;
+		z-index: 100;
+	}
+	
+	.rows li{
+		list-style: none;
+		border-top: 1px solid #eee;
+		border-bottom: 1px solid #eee;	
+	}
+	
+	.rows li:first-child{
+		border-top: 2px solid #eee;	
+	}
+
+	.rows li:last-child{
+		border-bottom: 2px solid #eee;
+	}
+	
+	/* cakalne dobe */
+		.cakalne_dobe{
+			font-size: 16px;
+		}
+		
+		.redno:before, .hitro:before{
+			content: "hitro";
+			display: block;
+			font-size: 10px;
+			text-transform: uppercase;
+			color: #aaa;
+		}
+		
+		.redno:after, .hitro:after{
+			content: " dni";
+			color: #aaa;
+			display: inline;
+			font-size: 12px;
+		}
+		
+		
+		.redno:before{
+			content: "redno";
+		}
+		
+		.hitro, .redno{
+			text-align: center;
+			display: inline-block;
+			width: 50%;
+		}
+		
+		.hitro{
+			padding-right: 10px;
+		}
+		
+		.redno{
+			padding-left: 10px;
+		}
+
+	.izvajalec{
+		width: 50%;
+		font-size: 16px;
+	}	
+	.izvajalec span{
+		display: block;
+	}	
+
+	
+	.izvajalec, .cakalne_dobe, .mesto, .dejavnost_ime{
+		display: inline-block;
+		vertical-align: top;
+		color: #333;
+	}
+	
+	.cakalne_dobe, .mesto{
+		font-size: 14px;
+		width: 25%;
+		padding-left: 20px;
+	}	
+	
+	.ime, .dejavnost_ime{
+		/* overflow elipsis */
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	.dejavnost_ime{
+		display: inline-block;
+		width: 75%;
+	}
+	
+	.ime{
+		font-size: 12px;
+	}
+
+	.dejavnost{
+		font-weight: bold;
+	}
+
+	a, .dejavnost{
+		text-decoration: underline;
+		color: #3C84D7;
+	}
+/* 
+---------
+Search 
+---------
+*/	
+	input{
+			padding: 0 0.5em;
+			font-size: 1em;	
+			line-height: 1.5em;
+		}
+		
+	input:focus{
+			outline: 2px solid #5590D4;
+	}
+
+	.search{
+		display: none; /* only via JS */
+		margin-bottom: 8em;
+	}	
+	
+	#search_input{
+		display: block;
+		width: 80%;
+		margin: 3em auto;
+		line-height: 3em;
+		background: url('icons/search.png') no-repeat 0.5em center;
+		padding-left: 2.5em;
+	}
+	
+	
+/* 
+---------
+Footer
+---------
+*/	
+
+html{
+	height: 100%;
+}
+
+body{
+	min-height: 100%;
+	padding-bottom: 16em; /* footer height + footer margin */
+	position: relative;
+}
+
+.footer{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	line-height: 9.6em;
+	font-size: 10px;
+	text-align: center;
+	background: #eee;
+}
+
+/* ----- */
+@media (max-width: 720px){	
+	.logo{
+		font-size: 1.5em;
+	}
+}
+
+@media (max-width: 480px){
+		.izvajalec,
+		.mesto,
+		.cakalne_dobe{
+			width: 100%;
+			padding: 0.5em 0;
+			margin: 0;
+		}
+		
+		.rows li{
+			padding: 0;
+		}
+		
+		.cakalne_dobe{
+			position: relative;
+		}
+		
+		.redno,
+		.hitro{
+			background: #eee;
+			padding: 0.5em;
+			border-radius: 0;
+			color: #555;
+		}
+		
+		.wrap{
+			padding: 0;
+		}
+		
+		.rows li{
+			padding: 0 20px;
+		}
+}
