@@ -7,7 +7,9 @@ CSS reset
 		box-sizing: border-box;
 	}
 	
-	body, html, ul, li, dd{
+	body, html, 
+	ul, li, 
+	dl, dt, dd{
 		margin: 0; padding: 0;
 	}
 	
@@ -18,11 +20,11 @@ CSS reset
 
 	dt{
 		font-weight: bold;
-		margin-top: 1.5em;
 	}
 	
 	dt:after{
 		content: ":";
+		padding-right: 1em;
 	}
 
 
@@ -33,8 +35,12 @@ Basics
 */
 	body{
 		border-top: 0.5em solid #5590D4;
+		color: #333;
 	}
 	
+	p{
+		color: #555;
+	}
 	
 	.wrap{
 		max-width: 730px;
@@ -46,6 +52,23 @@ Basics
 		cursor: pointer;
 	}
 	
+	.cf:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+	
+	.btn{
+		display: inline-block;
+		padding: 0 1em;
+		line-height: 3em;
+		border-radius: 3px;
+		margin-top: 1.5em;
+		background: #5590D4;
+		color: #fff;
+		text-decoration: none;
+		text-align: center;
+	}
 
 /* 
 ---------
@@ -54,7 +77,10 @@ Headers
 */
 	h1, h2{
 		margin: 3em 0 1em;
-		text-align: center;
+	}
+
+	h2{
+		font-size: 1em;
 	}
 
 
@@ -66,14 +92,15 @@ Logo
 	.logo{	
 		font-size: 3.5em;
 		line-height: 2em;
-		/* margin: 1.5em 0 0.5em; */
-		margin: 2.5em 0 1em;
+		margin-top: 3em;
 	}
 	
 	.logo, .logo a{
+		font-size: 0.875em;
+		text-transform: uppercase;
+	
 		text-decoration: none;
 		color: #EA4737;
-		text-align: center;
 	}
 
 
@@ -192,14 +219,68 @@ Modules
 		font-size: 12px;
 	}
 
+	.services_list .ime,
 	.dejavnost{
 		font-weight: bold;
 	}
 
-	a, .dejavnost{
+	a, .dejavnost, .services_list .ime{
 		text-decoration: underline;
 		color: #3C84D7;
 	}
+	
+	.services_list .ime{
+		font-size: 1em;
+	}
+	
+	
+	/* Single result */
+		dt, dd{
+			margin-top: 1em;
+			float: left;
+		}
+				
+		dt{
+			clear: both;
+		}
+				
+		.regular,.fast{
+			color: #555;
+			width: 50%;
+			display: inline-block;
+			text-align: center;
+			font-size: 1.5em;
+			background: #eee;
+			line-height: 4.5em;
+			padding: 0 1em;
+		}
+		
+
+		.regular:before,.fast:before{
+			content: "Hitro: ";
+			text-transform: uppercase;
+			color: #777;
+			font-size: 0.5em;
+			line-height: 6em;
+			height: 0.5em;
+			font-weight: bold;
+		}		
+		
+		.regular:before{
+			content: "Redno: "
+		}
+		
+		.regular:after,.fast:after{
+			content: " dni";
+			color: #777;
+			font-size: 0.5em;
+		}
+		
+		.more{
+			margin-top: 4.5em;
+			width: 100%;
+		}
+	
 /* 
 ---------
 Search 
@@ -208,27 +289,52 @@ Search
 	input{
 			padding: 0 0.5em;
 			font-size: 1em;	
-			line-height: 1.5em;
+			line-height: 1.5em;	
+			border:none;
+			border-bottom: 3px solid;
 		}
 		
 	input:focus{
-			outline: 2px solid #5590D4;
+		outline: none; 
+		border-bottom: 3px solid #5590D4
 	}
 
 	.search{
 		display: none; /* only via JS */
-		margin-bottom: 8em;
+		margin: 7.5em 0 8em;
 	}	
 	
 	#search_input{
+		font-size: 1.5em;
 		display: block;
-		width: 80%;
-		margin: 3em auto;
+		width: 100%;
+		margin: 1.5em auto;
 		line-height: 3em;
 		background: url('icons/search.png') no-repeat 0.5em center;
-		padding-left: 2.5em;
+		padding-left: 2em;
 	}
 	
+	
+/* 
+---------
+Other
+---------
+*/		
+	
+	.terms{
+		max-width: 560px;
+	}
+	
+	.search_alt{
+		font-size: 0.75em;
+		color: #777;
+		padding: 1em;
+		background: #eee;
+		width: 100%;
+		display: block;
+		border-radius: 3px;
+		text-align: center;
+	}	
 	
 /* 
 ---------
@@ -250,20 +356,79 @@ body{
 	width: 100%;
 	position: absolute;
 	bottom: 0;
-	line-height: 9.6em;
-	font-size: 10px;
+	line-height: 8em;
+	font-size: 0.75em;
 	text-align: center;
 	background: #eee;
 }
 
+
 /* ----- */
-@media (max-width: 720px){	
-	.logo{
-		font-size: 1.5em;
-	}
+/* 
+	pagination 
+*/
+
+#pagination{
+	display: none;
+	margin-top: 1.5em;
+	background: #eee;
+	text-align: center;
+	position: relative;
+	line-height: 3em;
+	border-radius: 3px;
 }
 
-@media (max-width: 480px){
+#prev,
+#next{
+	top: 0;
+	position: absolute;
+	display: inline-block;
+	width: 100px;
+	background: #5590D4;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+}
+
+#prev{
+	left: 0px;
+	border-radius: 3px 0px 0px 3px;
+}
+
+#next{
+	right: 0px;
+	border-radius: 0px 3px 3px 0px
+}
+
+#page:before{
+	content: "Stran: ";
+	display: inline
+}
+
+
+/* ----- */
+@media (max-width: 720px){	
+	#search_input{
+		font-size: 1.25em;
+		padding-left: 2.5em;
+	}
+	
+	.search{
+		margin: 4.5em 0 8em;
+	}	
+}
+
+@media (max-width: 630px){	
+		#search_input{
+			font-size: 1em;
+		}
+
+		.search{
+			margin: 3em 0 8em;
+		}
+}
+
+@media (max-width: 480px){	
 		.izvajalec,
 		.mesto,
 		.cakalne_dobe{
@@ -288,11 +453,20 @@ body{
 			color: #555;
 		}
 		
-		.wrap{
-			padding: 0;
+		
+		.regular:before,.fast:before{
+			display: block;
+		}
+
+		dt, dd{
+			float: none;
+		}
+		dd{
+			margin: 0;
 		}
 		
-		.rows li{
-			padding: 0 20px;
+		#page:before{
+			display: none;
 		}
 }
+
