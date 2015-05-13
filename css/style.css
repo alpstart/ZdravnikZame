@@ -293,6 +293,7 @@ Search
 			line-height: 1.5em;	
 			border:none;
 			border-bottom: 3px solid;
+			border-radius: 0;
 		}
 		
 	input:focus{
